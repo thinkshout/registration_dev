@@ -8,7 +8,7 @@ set -e
 # profile main directory. If any of the db params are excluded, the install
 # profile will not be run, just built.
 #
-PROJECT = 'registration_dev'
+PROJECT='registration_dev'
 
 confirm () {
   read -r -p "${1:-Are you sure? [Y/n]} " response
