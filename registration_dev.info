@@ -1,0 +1,25 @@
+name = Registration Development
+description = Profile for development for Registration module.
+core = 7.x
+
+; core
+dependencies[] = block
+dependencies[] = menu
+dependencies[] = dblog
+
+; contrib
+dependencies[] = devel
+dependencies[] = entity
+dependencies[] = admin_menu
+dependencies[] = coder
+
+; mailchimp
+dependencies[] = registration
+dependencies[] = registration_views
+dependencies[] = registration_entity_access
+dependencies[] = registration_waitlist
+
+;testing
+dependencies[] = registration_test
+
+files[] = registration_dev.profile
