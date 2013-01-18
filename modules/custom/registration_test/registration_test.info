@@ -1,0 +1,5 @@
+name = Registration Development
+description = Profile for development for Registration module.
+core = 7.x
+
+dependencies[] = simpletest
