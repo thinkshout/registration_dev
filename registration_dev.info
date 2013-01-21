@@ -13,6 +13,7 @@ dependencies[] = devel_generate
 dependencies[] = entity
 dependencies[] = admin_menu
 dependencies[] = coder
+dependencies[] = coder_review
 
 ; mailchimp
 dependencies[] = registration
