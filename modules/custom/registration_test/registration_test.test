@@ -1,0 +1,13 @@
+<?php
+
+class RegistrationDevStandardTestCase extends RegistrationStandardTestCase {
+  protected $profile = 'registration_dev';
+
+  public static function getInfo() {
+    $info = parent::getInfo();
+    $info['name'] = 'Registration dev profile';
+    $info['description'] = 'Test Registration using dev profile.';
+    return $info;
+  }
+
+}

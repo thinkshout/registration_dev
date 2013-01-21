@@ -1,5 +1,8 @@
 name = Registration Development
 description = Profile for development for Registration module.
+package = Registration
 core = 7.x
 
 dependencies[] = simpletest
+
+files[] = registration_test.test
