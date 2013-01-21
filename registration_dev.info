@@ -9,6 +9,7 @@ dependencies[] = dblog
 
 ; contrib
 dependencies[] = devel
+dependencies[] = devel_generate
 dependencies[] = entity
 dependencies[] = admin_menu
 dependencies[] = coder

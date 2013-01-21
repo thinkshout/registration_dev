@@ -20,12 +20,15 @@ function registration_dev_install() {
     ->execute();
   variable_set('admin_theme', 'seven');
   variable_set('node_admin_theme', '1');
+
+  registration_dev_setup();
 }
 
 /**
  * Setup registration stuff.
  */
 function registration_dev_setup() {
+  module_load_include('inc', 'devel_generate');
   registration_type_save(new RegistrationType(array(
     'name' => 'registration_type_1',
     'label' => 'Registration Type 1'
