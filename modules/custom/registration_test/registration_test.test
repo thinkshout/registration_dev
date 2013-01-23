@@ -11,3 +11,15 @@ class RegistrationDevStandardTestCase extends RegistrationStandardTestCase {
   }
 
 }
+
+class RegistrationDevWaitlistTestCase extends RegistrationWaitlistTestCase {
+  protected $profile = 'registration_dev';
+
+  public static function getInfo() {
+    $info = parent::getInfo();
+    $info['name'] = 'Registration dev profile waitlist';
+    $info['description'] = 'Test Registration Wait List using dev profile.';
+    return $info;
+  }
+
+}
