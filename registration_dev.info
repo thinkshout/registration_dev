@@ -6,14 +6,18 @@ core = 7.x
 dependencies[] = block
 dependencies[] = menu
 dependencies[] = dblog
+dependencies[] = field_ui
 
 ; contrib
 dependencies[] = devel
 dependencies[] = devel_generate
 dependencies[] = entity
+dependencies[] = entitycache
 dependencies[] = admin_menu
 dependencies[] = coder
 dependencies[] = coder_review
+dependencies[] = views
+dependencies[] = ctools
 
 ; mailchimp
 dependencies[] = registration

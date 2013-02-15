@@ -11,7 +11,10 @@ defaults[projects][subdir] = "contrib"
 projects[] = admin_menu
 projects[] = devel
 projects[] = entity
+projects[] = entitycache
 projects[] = coder
+projects[] = views
+projects[] = ctools
 
 ; registration
 projects[registration][type] = module
