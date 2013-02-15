@@ -18,6 +18,8 @@ dependencies[] = coder
 dependencies[] = coder_review
 dependencies[] = views
 dependencies[] = ctools
+dependencies[] = rules
+dependencies[] = rules_admin
 
 ; mailchimp
 dependencies[] = registration

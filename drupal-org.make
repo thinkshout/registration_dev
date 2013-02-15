@@ -15,6 +15,7 @@ projects[] = entitycache
 projects[] = coder
 projects[] = views
 projects[] = ctools
+projects[] = rules
 
 ; registration
 projects[registration][type] = module
