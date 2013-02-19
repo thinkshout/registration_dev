@@ -17,6 +17,7 @@ dependencies[] = admin_menu
 dependencies[] = coder
 dependencies[] = coder_review
 dependencies[] = views
+dependencies[] = views_ui
 dependencies[] = ctools
 dependencies[] = rules
 dependencies[] = rules_admin
