@@ -4,6 +4,8 @@
  * Implements hook_views_default_views().
  */
 function registration_test_views_default_views() {
+  $views = array();
+
   $view = new view();
   $view->name = 'registrations';
   $view->description = '';
@@ -76,5 +78,7 @@ function registration_test_views_default_views() {
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $handler->display->display_options['path'] = 'registrations';
 
-  return $view;
+  $views[$view->name] = $view;
+
+  return $views;
 }
