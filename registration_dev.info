@@ -21,6 +21,7 @@ dependencies[] = views_ui
 dependencies[] = ctools
 dependencies[] = rules
 dependencies[] = rules_admin
+dependencies[] = addressfield
 
 ; registration
 dependencies[] = registration

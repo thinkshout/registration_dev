@@ -14,6 +14,7 @@ projects[] = entity
 projects[] = entitycache
 projects[] = entityreference
 projects[] = coder
+projects[] = addressfield
 projects[] = commerce
 projects[] = views
 projects[] = ctools
