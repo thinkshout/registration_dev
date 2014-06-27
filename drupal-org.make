@@ -27,8 +27,8 @@ projects[registration][download][url] = "git@git.drupal.org:project/registration
 projects[registration][subdir] = registration
 
 ; registration_commerce
-projects[registration][type] = module
-projects[registration][download][type] = git
-projects[registration][download][branch] = 7.x-1.x
-projects[registration][download][url] = "git@git.drupal.org:project/registration_commerce.git"
-projects[registration][subdir] = registration
+projects[registration_commerce][type] = module
+projects[registration_commerce][download][type] = git
+projects[registration_commerce][download][branch] = 7.x-1.x
+projects[registration_commerce][download][url] = "git@git.drupal.org:project/registration_commerce.git"
+projects[registration_commerce][subdir] = registration
