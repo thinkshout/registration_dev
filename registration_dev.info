@@ -22,11 +22,18 @@ dependencies[] = ctools
 dependencies[] = rules
 dependencies[] = rules_admin
 
-; mailchimp
+; registration
 dependencies[] = registration
 dependencies[] = registration_views
 dependencies[] = registration_entity_access
 dependencies[] = registration_waitlist
+
+; registration commerce
+dependencies[] = commerce
+dependencies[] = commerce_cart
+dependencies[] = commerce_product_reference
+dependencies[] = entityreference
+dependencies[] = registration_commerce
 
 ;testing
 dependencies[] = registration_test

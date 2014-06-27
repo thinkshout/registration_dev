@@ -12,7 +12,9 @@ projects[] = admin_menu
 projects[] = devel
 projects[] = entity
 projects[] = entitycache
+projects[] = entityreference
 projects[] = coder
+projects[] = commerce
 projects[] = views
 projects[] = ctools
 projects[] = rules
@@ -22,4 +24,11 @@ projects[registration][type] = module
 projects[registration][download][type] = git
 projects[registration][download][branch] = 7.x-1.x
 projects[registration][download][url] = "git@git.drupal.org:project/registration.git"
+projects[registration][subdir] = registration
+
+; registration_commerce
+projects[registration][type] = module
+projects[registration][download][type] = git
+projects[registration][download][branch] = 7.x-1.x
+projects[registration][download][url] = "git@git.drupal.org:project/registration_commerce.git"
 projects[registration][subdir] = registration
