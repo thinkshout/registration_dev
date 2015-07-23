@@ -109,7 +109,7 @@ fi
 
 # Build the profile.
 echo "Building the profile..."
-drush make --no-core --contrib-destination --no-gitinfofile drupal-org.make tmp
+drush make --no-core --contrib-destination --working-copy --no-gitinfofile drupal-org.make tmp
 
 # Build the distribution and copy the profile in place.
 echo "Building the distribution..."
@@ -147,10 +147,5 @@ else
     cat $SETTINGS >> $DESTINATION/sites/default/default.settings.php
   fi
 fi
-
-SETTINGS_SITE="$DESTINATION/profiles/$PROJECT/scripts/settings/site.settings.php"
-chmod 755 $DESTINATION/sites/default
-cp $SETTINGS_SITE $DESTINATION/sites/default/site.settings.php
-echo "Copied site.settings.php into place."
 
 echo "Build script complete."
