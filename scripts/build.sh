@@ -111,9 +111,6 @@ fi
 echo "Building the profile..."
 drush make --no-core --contrib-destination --no-gitinfofile drupal-org.make tmp
 
-# The structure of the youtube plugin is such that drush make needs help:
-mv tmp/modules/contrib/ckeditor/plugins/youtube/youtube/* tmp/modules/contrib/ckeditor/plugins/youtube/
-
 # Build the distribution and copy the profile in place.
 echo "Building the distribution..."
 drush make --no-gitinfofile drupal-org-core.make $TEMP_BUILD
