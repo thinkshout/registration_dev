@@ -8,7 +8,8 @@ set -e
 # profile main directory. If any of the db params are excluded, the install
 # profile will not be run, just built.
 #
-PROJECT='registration_dev'
+
+source scripts/config.sh
 
 confirm () {
   read -r -p "${1:-Are you sure? [Y/n]} " response
@@ -44,7 +45,7 @@ realpath () {
 usage() {
   echo "Usage: build.sh [-y] <DESTINATION_PATH> <DB_USER> <DB_PASS> <DB_NAME>" >&2
   echo "Use -y to skip deletion confirmation" >&2
-  echo "Install profile will only be run if db credentials are provivded" >&2
+  echo "Install profile will only be run if db credentials are provided" >&2
   exit 1
 }
 
@@ -81,6 +82,17 @@ fi
 
 DESTINATION=$(realpath $DESTINATION)
 
+case $OSTYPE in
+  darwin*)
+    TEMP_BUILD=`mktemp -d -t tmpdir`
+    ;;
+  *)
+    TEMP_BUILD=`mktemp -d`
+    ;;
+esac
+# Drush make expects destination to be empty.
+rmdir $TEMP_BUILD
+
 if [ -d $DESTINATION ]; then
   echo "Removing existing destination: $DESTINATION"
   if $ASK; then
@@ -96,16 +108,52 @@ if [ -d $DESTINATION ]; then
 fi
 
 # Build the profile.
-echo "Running Drush make ..."
-drush make --working-copy --no-gitinfofile build-$PROJECT.make $DESTINATION
+echo "Building the profile..."
+drush make --no-core --contrib-destination --no-gitinfofile drupal-org.make tmp
+
+# The structure of the youtube plugin is such that drush make needs help:
+mv tmp/modules/contrib/ckeditor/plugins/youtube/youtube/* tmp/modules/contrib/ckeditor/plugins/youtube/
+
+# Build the distribution and copy the profile in place.
+echo "Building the distribution..."
+drush make --no-gitinfofile drupal-org-core.make $TEMP_BUILD
+echo -n "Moving to destination... "
+cp -r tmp $TEMP_BUILD/profiles/$PROJECT
+rm -rf tmp
+cp -r . $TEMP_BUILD/profiles/$PROJECT
+mv $TEMP_BUILD $DESTINATION
+
 
 # run the install profile
+SETTINGS="$DESTINATION/profiles/$PROJECT/scripts/settings/settings_additions.php"
 if [ $DBUSER  ] && [ $DBPASS ] && [ $DB ] ; then
+  # If bash receives an error status, it will halt execution. Setting +e to tell
+  # bash to continue even if error.
+  set +e
   cd $DESTINATION
   echo "Running install profile"
-  drush si $PROJECT --db-url=mysql://$DBUSER:$DBPASS@localhost/$DB -y
+  drush si $PROJECT --site-name="$SITENAME" --db-url=mysql://$DBUSER:$DBPASS@localhost/$DB -y
+  # Copy settings_additions.php if found
+  echo $SETTINGS
+  if [ -f $SETTINGS ]; then
+    echo -n "Copying settings.php additions"
+    chmod 755 $DESTINATION/sites/default
+    cat $SETTINGS >> $DESTINATION/sites/default/settings.php
+  fi
+  set -e
 else
   echo "Skipping install profile"
+  # Copy settings_additions.php if found
+  echo $SETTINGS
+  if [ -f $SETTINGS ]; then
+    echo -n "Copying settings.php additions to default.settings.php "
+    cat $SETTINGS >> $DESTINATION/sites/default/default.settings.php
+  fi
 fi
+
+SETTINGS_SITE="$DESTINATION/profiles/$PROJECT/scripts/settings/site.settings.php"
+chmod 755 $DESTINATION/sites/default
+cp $SETTINGS_SITE $DESTINATION/sites/default/site.settings.php
+echo "Copied site.settings.php into place."
 
 echo "Build script complete."
