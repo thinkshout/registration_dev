@@ -32,6 +32,9 @@ dependencies[] = registration_waitlist
 ; registration commerce
 dependencies[] = commerce
 dependencies[] = commerce_cart
+dependencies[] = commerce_price
+dependencies[] = commerce_product
+dependencies[] = commerce_product_ui
 dependencies[] = commerce_product_reference
 dependencies[] = entityreference
 dependencies[] = registration_commerce
