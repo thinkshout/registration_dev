@@ -82,3 +82,23 @@ function registration_test_views_default_views() {
 
   return $views;
 }
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function registration_test_form_registration_form_alter(&$form, &$form_state, $form_id) {
+  $registrant = registration_get_registrant($form_state['registration']);
+
+  $form['registrant_fields']['first_name'] = array(
+    '#type' => 'textfield',
+    '#title' => 'First name',
+    '#default_value' => isset($registrant->first_name) ? $registrant->first_name->value() : NULL,
+    '#required' => TRUE,
+  );
+  $form['registrant_fields']['last_name'] = array(
+    '#type' => 'textfield',
+    '#title' => 'Last name',
+    '#default_value' => isset($registrant->last_name) ? $registrant->last_name->value() : NULL,
+    '#required' => TRUE,
+  );
+}
