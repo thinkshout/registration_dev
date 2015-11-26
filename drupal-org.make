@@ -25,5 +25,5 @@ projects[registration][type] = module
 projects[registration][download][type] = git
 projects[registration][download][branch] = 7.x-2.x
 projects[registration][download][url] = "git@github.com:thinkshout/registration.git"
-projects[registration][subdir] = registration
+projects[registration][options][working-copy] = TRUE
 
