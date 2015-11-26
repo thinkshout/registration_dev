@@ -29,9 +29,18 @@ function registration_dev_install() {
  */
 function registration_dev_setup() {
   module_load_include('inc', 'devel_generate');
+
+  redhen_contact_type_save(new RedhenContactType(array(
+    'name' => 'general',
+    'label' => 'General',
+  )));
+
   registration_type_save(new RegistrationType(array(
     'name' => 'registration_type_1',
-    'label' => 'Registration Type 1'
+    'label' => 'Registration Type 1',
+    'registrant_entity_type' => 'redhen_contact',
+    'registrant_bundle' => 'general',
+    'registrant_email_property' => 'redhen_contact_email:value',
   )));
 
   // create event content type
@@ -88,7 +97,8 @@ function registration_dev_setup() {
     'capacity' => 0,
     'send_reminder' => 0,
     'settings' => serialize(array(
-      'from_address' => 'info@thinkshout.com'
+      'from_address' => 'info@thinkshout.com',
+      'upsert_registrants' => 1,
     )),
     'open' => NULL,
     'close' => NULL,

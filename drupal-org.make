@@ -20,6 +20,8 @@ projects[] = views
 projects[] = ctools
 projects[] = rules
 
+projects[] = redhen
+
 ; registration
 projects[registration][type] = module
 projects[registration][download][type] = git

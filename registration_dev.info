@@ -23,6 +23,10 @@ dependencies[] = rules
 dependencies[] = rules_admin
 dependencies[] = addressfield
 
+dependencies[] = redhen
+dependencies[] = redhen_fields
+dependencies[] = redhen_contact
+
 ; registration
 dependencies[] = registration
 dependencies[] = registration_views
