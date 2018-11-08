@@ -13,12 +13,14 @@ projects[] = devel
 projects[] = entity
 projects[] = entitycache
 projects[] = entityreference
-projects[] = coder
 projects[] = addressfield
 projects[] = commerce
 projects[] = views
 projects[] = ctools
 projects[] = rules
+
+; coder
+projects[coder][version] = 1.3
 
 ; registration
 projects[registration][type] = module
